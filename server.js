@@ -1,33 +1,23 @@
-import http from 'http';
+import express from 'express';
+import config from './config';
+import apiRouter from './api';
+//import fs from 'fs';
+const server = express();
 
-const server = http.createServer((req, res) => {
-    res.write('Hello HTTP!\n');
-    setTimeout(() => {
-        res.write('Dp de 3');
-        res.end();
-    }, 3000);
+server.get('/', (req, res) => {
+    res.send('hola!')
 });
 
-server.listen(8080);
-
+server.use('/api', apiRouter);
+server.use(express.static('public'))
 /*
-const server = http.createServer();
-
-server.listen(8080);
-
-server.on('request', (req, res) => {
-    res.write('Hello HTTP!\n');
-    setTimeout(() => {
-        res.write('Dp de 3');
-        res.end();
-    }, 3000);
+server.get('/about.html', (req, res) => {
+    //res.send('about!')
+    fs.readFile('./about.html',(err, data) => {
+        res.send(data.toString());
+    })
 });*/
-/*import https from 'https'
 
-https.get('https://www.lynda.com',res => {
-    console.log('Response status code: ', res.statusCode)
-
-    res.on('data', chunk => {
-        console.log(chunk.toString());
-    });
-});*/
+server.listen(config, () => {
+    console.info('Express escucha en el puerto ', config.port)
+});
