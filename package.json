@@ -1,0 +1,38 @@
+{
+  "name": "fulljs",
+  "version": "1.0.0",
+  "description": "prueba fulljs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec babel-node server.js --ignore public/",
+    "dev":"webpack -wd"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/celest67/fulljs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/celest67/fulljs/issues"
+  },
+  "homepage": "https://github.com/celest67/fulljs#readme",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongodb": "^3.1.3",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.6",
+    "babel-loader": "^7.1.5",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "eslint": "^5.4.0",
+    "eslint-plugin-react": "^7.11.1",
+    "webpack": "^4.17.0"
+  }
+}
