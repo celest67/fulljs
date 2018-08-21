@@ -1,13 +1,23 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const color = Math.random() > 0.5 ? 'green' : 'red';
+const App = (props) => {
+    return (
+        <h2 className="text-center">
+            {props.headerMessage}
+        </h2>
+    )
+}
+/* deprecated USAR npm install --save prop-types
+App.propTypes = {
+    headerMessage: React.PropTypes.string.isRequired
+};
+*/
+App.defaultProps = {
+    headerMessage: 'Hello'
+};
 
 ReactDOM.render(
-    //React.createElement('h2',null,'Hola react'),
-    //<h2 style={{color:color}}>
-    <h2 className="text-center">
-        Hello React con JSX -- {Math.random()}
-    </h2>,
+    <App />,
     document.getElementById('root')
 );
