@@ -12,6 +12,14 @@ class App extends React.Component {
         test: 43,
         pageHeader: 'Naming Contests'
     };
+    componentDidMount(){
+        console.log('did mount');
+        debugger;
+    }
+    componentWillUnmount(){
+        console.log('will unmount')
+        debugger;
+    }
     render () {
         return (
             <div className="App">
