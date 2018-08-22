@@ -1,8 +1,9 @@
 import React from 'react'
 import Header from './Header'
 import ContestPreview from './ContestPreview'
+import axios from 'axios';
 
-const json = require('../testData.json');
+//const json = require('../testData.json');
 
 class App extends React.Component {
     /*constructor(props) {
@@ -20,9 +21,16 @@ class App extends React.Component {
         console.log('did mount');
         //Aca va ajax, timers, listeners
         //debugger;
-        this.setState({
-            contests: json.contests
-        })
+        axios.get('/api/contests')
+            .then(resp => {
+                console.log(resp);
+                console.log(resp.data.contests)
+                this.setState({
+                    contests: resp.data.contests
+                })
+            })
+            .catch(console.error)
+        
     }
     componentWillUnmount(){
         console.log('will unmount')
