@@ -1,11 +1,22 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const App = (props) => {
+const Header = ({message}) => {
     return (
         <h2 className="text-center">
-            {props.headerMessage}
+            {message}
         </h2>
+    )
+}
+
+const App = () => {
+    return (
+        <div className="App">
+            <Header message="Naming lala"/>
+            <div>
+                ...
+            </div>
+        </div>
     )
 }
 /* deprecated USAR npm install --save prop-types
