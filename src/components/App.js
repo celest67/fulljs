@@ -2,6 +2,8 @@ import React from 'react'
 import Header from './Header'
 import ContestPreview from './ContestPreview'
 
+const json = require('../testData.json');
+
 class App extends React.Component {
     /*constructor(props) {
         super(props);
@@ -11,12 +13,16 @@ class App extends React.Component {
     }*/
     state = {
         test: 43,
-        pageHeader: 'Naming Contests'
+        pageHeader: 'Naming Contests',
+        contests: []
     };
     componentDidMount(){
         console.log('did mount');
         //Aca va ajax, timers, listeners
         //debugger;
+        this.setState({
+            contests: json.contests
+        })
     }
     componentWillUnmount(){
         console.log('will unmount')
@@ -28,8 +34,8 @@ class App extends React.Component {
             <div className="App">
                 <Header message={this.state.pageHeader}/>
                 <div>
-                    {this.props.contests.map(contest =>
-                        <ContestPreview {...contest}/>
+                    {this.state.contests.map(contest =>
+                        <ContestPreview key={contest.id} {...contest}/>
                     )}
                 </div>
             </div>
