@@ -15,12 +15,12 @@ class App extends React.Component {
     componentDidMount(){
         console.log('did mount');
         //Aca va ajax, timers, listeners
-        debugger;
+        //debugger;
     }
     componentWillUnmount(){
         console.log('will unmount')
         //aca va clean timers, listeners
-        debugger;
+        //debugger;
     }
     render () {
         return (
